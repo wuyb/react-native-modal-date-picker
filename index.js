@@ -226,7 +226,7 @@ const DateTimePicker = React.createClass({
 
     render () {
         const {openModal,modalName} = this.state;
-        const {textStyle, selectData,formater,cancleText,finishText,title,modalColor,pickerHeight,pickerColor,buttonColor} = this.props;
+        const {datePlaceholderTextStyle, textStyle, selectData,formater,cancleText,finishText,title,modalColor,pickerHeight,pickerColor,buttonColor} = this.props;
         const modalBackgroundStyle = {
               backgroundColor: (modalColor?modalColor:'rgba(0,0,0,0.4)'),
             };
@@ -234,10 +234,11 @@ const DateTimePicker = React.createClass({
         const pickerColorStyle = pickerColor?{backgroundColor:pickerColor}:{};
         const buttonColorStyle = buttonColor?{color:buttonColor}:{};
 				const dateTextStyle = textStyle ? textStyle : {};
+        const datePlaceholderTextStyle = placeholderTextStyle ? placeholderTextStyle : {};
         return (
             <View>
                 <TouchableOpacity onPress={this.toggleModal}>
-                    <Text style={dateTextStyle}>{selectData?moment(selectData).format(formater||'YYYY-MM-DD'):"请选择日期"}</Text>
+                    <Text style={selectData ? dateTextStyle : datePlaceholderTextStyle}>{selectData?moment(selectData).format(formater||'YYYY-MM-DD'):"请选择日期"}</Text>
                 </TouchableOpacity>
                 {
                     openModal==modalName?(
