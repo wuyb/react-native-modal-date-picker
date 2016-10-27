@@ -226,7 +226,7 @@ const DateTimePicker = React.createClass({
 
     render () {
         const {openModal,modalName} = this.state;
-        const {datePlaceholderTextStyle, textStyle, selectData,formater,cancleText,finishText,title,modalColor,pickerHeight,pickerColor,buttonColor} = this.props;
+        const {placeholderTextStyle, textStyle, selectData,formater,cancleText,finishText,title,modalColor,pickerHeight,pickerColor,buttonColor} = this.props;
         const modalBackgroundStyle = {
               backgroundColor: (modalColor?modalColor:'rgba(0,0,0,0.4)'),
             };
